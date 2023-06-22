@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/style/style.css?{% now "U" %}">
+  <link rel="stylesheet" href="../static/style/products.css?{% now "U" %}">
+  <link rel="stylesheet" href="../static/style/product.css?{% now "U" %}">
+  <link rel="stylesheet" href="../static/style/bag.css?{% now "U" %}">
+  <link rel="stylesheet" href="../static/style/order.css?{% now "U" %}">
+  <link rel="stylesheet" href="../static/style/contact.css?{% now "U" %}">
+  <script src="https://kit.fontawesome.com/ddfdcacb4c.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="../static/assets/png-black.png">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+  <div class="navbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn"><i class="fa-solid fa-bars"></i></label>
+    <a href="/" class="logo">
+      <img src="../static/assets/png-white.png">
+    </a>
+    <ul class="links">
+      <li><a class="cool-link" href="/">HOME</a></li>
+      <li><a class="cool-link" href="/products">SHOP</a></li>
+      <li><a class="cool-link" href="#">ABOUT</a></li>
+      <li><a class="cool-link" href="/contact">CONTACT</a></li>
+    </ul>
+    <a class="bag" href="/bag"><i class="fa-solid fa-bag-shopping"></i></a>
+  </div>
+  {% block content %}
+  {% endblock %}
+  <footer>
+    <div class="footer_container">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <div class="contact">
+            <h3>CONTACT</h3>
+            <span><i class="fas fa-phone"></i>123-456-7890</span>
+            <span><i class="fas fa-envelope"></i>info@example.com</span>
+          </div>
+        </div>
+        <div class="footer-section follow">
+          <h3>Follow us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <img src="../static/assets/png-black.png">
+        <p>&copy; 2023 Menci. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

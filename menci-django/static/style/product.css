@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("../assets/pexels-francesco-ungaro-998641.jpg");
+  }
+.product_container {
+    margin: 50px 0;
+    display: flex;
+    height: 600px;
+}
+.product_box {
+    justify-content: center;
+    align-items: center;
+    border: solid 2px white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgb(65, 61, 61);
+    padding: 45px;
+    margin: 15px auto;
+    max-height: 100%;
+    max-width: 80%;
+    display: flex;
+}
+.main_pic {
+    width: 300px;
+}
+.main_pic img {
+    width: inherit;
+    border-radius: 5px;
+}
+.product_pics {
+    display: flex;
+    width: 50%;
+    margin-top: 15px;
+}
+.second_pic {
+    width: 50px;
+    margin: 0 5px;
+}
+.second_pic img {
+    width: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+.second_pic:hover img {
+    transform: scale(1.2);
+}
+
+.product_box .basic-info {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 20px;
+}
+
+.product_box .basic-info span {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.product_box .basic-info .bag_btn {
+    color: white;
+    background-color:darkred;
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+.product_box .basic-info .bag_btn:hover {
+    background-color:sienna;
+}
+.alert_message {
+    margin: 0 20px;
+    background-color: #201d1d;
+    color: #fff;
+    font-size: 16px;
+}
+
+.product_box .description {
+    display: flex;
+    flex-direction: column;
+}
+
+.product_box .description p {
+    color:mediumaquamarine;
+    font-size: 18px;
+    line-height: 1.5;
+}
+.product_size {
+    display: flex;
+    
+    margin: 20px 0;
+   
+}
+.product_size p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.psize {
+    width: 60px;
+    height: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.psize.active {
+    border-width: 1.5px;
+    background-color:honeydew;
+    color: #000;
+}
+.product_quantity {
+    display: flex;
+}
+.product_quantity p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.quantity-input {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  
+  .quantity-btn {
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color:#000;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .quantity-input input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #333;
+  }
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 1165px) {
+    .product_box {
+        padding: 30px;
+        max-width: 85%;
+    }
+    .basic-info {
+        padding: 10px;
+        margin: 0;
+    }
+    .main_pic {
+        margin-top: 20px;
+    }
+} 
+@media screen and (max-width: 1050px) {
+    .main_pic {
+        width: 240px;
+        margin-top: 30px;
+    }
+    .product_box {
+        padding: 20px;
+        max-width: 90%;
+    }
+}
+@media screen and (max-width: 767.5px) {
+    .product_container {
+        height: 1200px;
+    }
+    .main_pic {
+        width: 385px;
+        margin: auto;
+    }
+}
+

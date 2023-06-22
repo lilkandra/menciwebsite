@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="product_container">
+        <div class="product_box">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="main_pic">
+                      <img src="{{product.main_image.url}}">
+                    </div>
+                    <div class="product_pics">
+                      <div class="second_pic">
+                        <img src="{{product.main_image.url}}" onclick="ShowImg(this.src)">
+                      </div>
+                      <div class="second_pic">
+                        <img src="{{product.scnd_image.url}}" onclick="ShowImg(this.src)">
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="basic-info">
+                        <h1>{{product.title}}</h1>
+                        <span>$29.00</span>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div class="product_size">
+                          <p>Size </p>
+                          <div class="psize" onclick="SelectSize(event)">S</div>
+                          <div class="psize" onclick="SelectSize(event)">M</div>
+                          <div class="psize" onclick="SelectSize(event)">L</div>
+                          <div class="psize" onclick="SelectSize(event)">XL</div>
+                        </div>
+                        <form method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="size" id="size">
+                          <div class="product_quantity">
+                            <p>Quantity </p>
+                            <div class="quantity-input">
+                              <button type="button" class="quantity-btn" onclick="decrement()">-</button>
+                              <input type="number" name="quantity" id="quantity" min="0" value="1">
+                              <button type="button" class="quantity-btn" onclick="increment()">+</button>
+                            </div>
+                          </div>
+                          <button class='bag_btn' type="submit">Add to Bag</a>
+                        </form>
+                      </div>
+                      {% for message in messages %}
+                          <div class="alert alert_message">{{message}}</div>
+                      {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      let main_pic = document.querySelector('.main_pic img');
+      function ShowImg(pic) {
+        main_pic.src = pic;
+      }
+      function SelectSize(size) {
+        var sizeElements = document.querySelectorAll('.psize');
+        var size_target = event.target;
+        document.getElementById('size').value = size_target.innerHTML;
+        sizeElements.forEach(function(element) {
+          element.classList.remove('active');
+        })
+        size_target.classList.add('active');
+      }
+      function increment() {
+      var quantityInput = document.getElementById('quantity');
+      quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
+
+    function decrement() {
+      var quantityInput = document.getElementById('quantity');
+      var currentValue = parseInt(quantityInput.value);
+      
+      if (currentValue > 0) {
+        quantityInput.value = currentValue - 1;
+      }
+    }
+    </script>
+{% endblock %}
+  
+  

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<title>Bag</title>
+    {% if bag %}
+    {% for b in bag %}
+    <div class="bag_container">
+      {% for item in b.items.all %}
+      <div class="bag-item">
+        <img src="{{item.product.main_image.url}}" alt="Product 1">
+        <div class="bag-item-details">
+          <div class="bag-item-title">{{item.product.title}}</div>
+          <div class="bag-item-price">{{item.price}} TND</div>
+          <div class="bag-item-size">Size: {{item.size}}</div>
+          <div class="bag-item-quantity">Quantity: {{item.quantity}}</div>
+          <div class="bag-item-remove">
+            <a href="/remove_item/{{item.id}}"><i class="fa-solid fa-trash"></i></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="bag-total">
+        Total: {{b.total}} TND
+      </div>
+      <a class="purchase-btn" href="/order">Purchase Now</a>
+    </div>
+    {% endfor %}
+  {% else %}
+  <div class="bag_empty">YOUR BAG IS EMPTY</div>
+  <div class="btn_container">
+    <a class="electric" href="products"><span>Show Products</span></a>
+  </div>
+  {% endif %}
+{% endblock %}
